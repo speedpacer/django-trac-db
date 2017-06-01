@@ -14,7 +14,7 @@ echo "Enter root password"
 read ROOTPASS
 mysql -uroot -p${ROOTPASS} -e "CREATE DATABASE ${DJANGODB} CHARACTER SET utf8 COLLATE utf8_general_ci;"
 mysql -uroot -p${ROOTPASS} -e "CREATE DATABASE ${TRACDB} CHARACTER SET utf8 COLLATE utf8_bin;"
-mysql -uroot -p${ROOTPASS} -e "CREATE USER ${DBADMIN}@localhost IDENTIFIED BY '${USERPASS}';"
+mysql -uroot -p${ROOTPASS} -e "CREATE USER ${DBADMIN}@localhost IDENTIFIED BY '${DBPASS}';"
 mysql -uroot -p${ROOTPASS} -e "GRANT ALL PRIVILEGES ON ${DJANGODB}.* TO '${DBADMIN}'@'localhost';"
 mysql -uroot -p${ROOTPASS} -e "GRANT ALL PRIVILEGES ON ${TRACDB}.* TO '${DBADMIN}'@'localhost';" mysql -uroot -p${ROOTPASS} -e "FLUSH PRIVILEGES;"
 
@@ -24,3 +24,4 @@ echo User: ${DBADMIN}
 echo Password: ${DBPASS}
 echo Django DB: ${DJANGODB}
 echo Trac DB: ${TRACDB}
+
